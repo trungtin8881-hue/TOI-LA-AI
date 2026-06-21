@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nguyễn Trung Tín — Banking & Finance | AI Product Builder. Sản phẩm thật. Giá trị thật.">
+<meta property="og:title" content="Nguyễn Trung Tín">
+<meta property="og:description" content="Sản phẩm thật. Giá trị thật.">
+<meta property="og:type" content="website">
+<title>Nguyễn Trung Tín</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+:root {
+  --ink:    #0f0f10;
+  --muted:  #6b6b7a;
+  --line:   #e8e8ec;
+  --bg:     #f9f9fb;
+  --white:  #ffffff;
+  --accent: #1a56db;
+  --gold:   #c9831a;
+  --green:  #16a34a;
+  --tag-bg: #f0f4ff;
+  --tag-fg: #1a56db;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  line-height:1.6;
+}
+
+/* ── HEADER ── */
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  padding:0 24px;
+  position:sticky;top:0;z-index:99;
+}
+.nav{
+  max-width:720px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:56px;
+}
+.nav-logo{
+  font-size:.9rem;font-weight:700;color:var(--ink);letter-spacing:.5px;
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{
+  font-size:.82rem;font-weight:500;color:var(--muted);
+  text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--ink);}
+
+/* ── HERO ── */
+.hero{
+  max-width:720px;margin:0 auto;
+  padding:64px 24px 48px;
+}
+.hero-eyebrow{
+  font-size:.75rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:16px;
+}
+.hero-name{
+  font-size:clamp(2.4rem,7vw,4rem);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-1.5px;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.hero-name span{
+  background:linear-gradient(135deg,#1a56db,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-bio{
+  font-size:1.05rem;color:var(--muted);
+  max-width:500px;margin-bottom:32px;
+  line-height:1.7;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px;}
+.tag{
+  font-size:.75rem;font-weight:600;
+  padding:5px 12px;border-radius:99px;
+  background:var(--tag-bg);color:var(--tag-fg);
+  letter-spacing:.3px;
+}
+.tag.green{background:#f0fdf4;color:var(--green);}
+.tag.gold{background:#fffbeb;color:var(--gold);}
+.hero-contacts{display:flex;flex-wrap:wrap;gap:12px;}
+.contact-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:8px;
+  font-size:.85rem;font-weight:600;
+  text-decoration:none;transition:all .2s;
+  border:1.5px solid var(--line);
+  background:var(--white);color:var(--ink);
+}
+.contact-btn:hover{border-color:var(--accent);color:var(--accent);}
+.contact-btn.primary{
+  background:var(--accent);color:#fff;border-color:var(--accent);
+}
+.contact-btn.primary:hover{background:#1447c0;border-color:#1447c0;}
+
+/* ── DIVIDER ── */
+.divider{
+  max-width:720px;margin:0 auto;
+  border:none;border-top:1px solid var(--line);
+}
+
+/* ── SECTION ── */
+.section{max-width:720px;margin:0 auto;padding:48px 24px;}
+.section-label{
+  font-size:.7rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:32px;
+}
+
+/* ── BACKGROUND ── */
+.bg-grid{
+  display:grid;gap:12px;
+  grid-template-columns:1fr 1fr;
+}
+@media(max-width:480px){.bg-grid{grid-template-columns:1fr;}}
+.bg-card{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:12px;padding:20px;
+}
+.bg-card-label{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.bg-card-value{font-size:.95rem;font-weight:600;color:var(--ink);}
+.bg-card-sub{font-size:.8rem;color:var(--muted);margin-top:2px;}
+
+/* ── PRODUCTS ── */
+.product-list{display:flex;flex-direction:column;gap:16px;}
+.product-card{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:14px;padding:24px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:box-shadow .2s,border-color .2s;
+  text-decoration:none;color:inherit;
+}
+.product-card:hover{
+  box-shadow:0 4px 24px rgba(0,0,0,.07);
+  border-color:#c7d2fe;
+}
+.product-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.product-icon{font-size:1.8rem;line-height:1;}
+.product-link-icon{
+  font-size:.75rem;color:var(--muted);
+  display:flex;align-items:center;gap:4px;
+  font-weight:500;
+  white-space:nowrap;
+}
+.product-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.product-desc{font-size:.875rem;color:var(--muted);line-height:1.6;}
+.product-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.ptag{
+  font-size:.7rem;font-weight:600;padding:3px 10px;
+  border-radius:99px;background:var(--tag-bg);color:var(--tag-fg);
+}
+.ptag.g{background:#f0fdf4;color:var(--green);}
+.ptag.o{background:#fff7ed;color:#c2410c;}
+
+/* ── EXPERIENCE ── */
+.exp-list{display:flex;flex-direction:column;gap:0;}
+.exp-item{
+  display:flex;gap:20px;
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+}
+.exp-item:last-child{border-bottom:none;}
+.exp-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--accent);margin-top:6px;flex-shrink:0;
+}
+.exp-content{flex:1;}
+.exp-role{font-size:.95rem;font-weight:700;color:var(--ink);}
+.exp-company{font-size:.85rem;color:var(--accent);font-weight:600;margin-bottom:4px;}
+.exp-period{font-size:.75rem;color:var(--muted);margin-bottom:8px;}
+.exp-desc{font-size:.85rem;color:var(--muted);line-height:1.65;}
+
+/* ── PHILOSOPHY ── */
+.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:480px){.phil-grid{grid-template-columns:1fr;}}
+.phil-item{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:12px;padding:20px;
+}
+.phil-quote{
+  font-size:.9rem;font-weight:600;color:var(--ink);
+  line-height:1.5;margin-bottom:6px;
+}
+.phil-sub{font-size:.78rem;color:var(--muted);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);color:rgba(255,255,255,.5);
+  text-align:center;padding:32px 24px;
+  font-size:.78rem;letter-spacing:.5px;
+}
+footer a{color:rgba(255,255,255,.7);text-decoration:none;}
+footer strong{color:rgba(255,255,255,.9);}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <a class="nav-logo" href="#">NTT</a>
+    <div class="nav-links">
+      <a href="#products">Sản phẩm</a>
+      <a href="#experience">Kinh nghiệm</a>
+      <a href="#contact">Liên hệ</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Ho Chi Minh City, Vietnam</div>
+  <h1 class="hero-name">Nguyễn<br><span>Trung Tín</span></h1>
+  <p class="hero-bio">
+    7+ năm trong ngành ngân hàng và tài chính. Tự học xây dựng sản phẩm phần mềm thực tế bằng AI. Tin rằng giá trị thật quan trọng hơn hình ảnh.
+  </p>
+  <div class="hero-tags">
+    <span class="tag">Banking & Finance</span>
+    <span class="tag gold">EB5 Investment</span>
+    <span class="tag green">AI Product Builder</span>
+    <span class="tag">Citibank Vietnam</span>
+    <span class="tag">Harvey Law Group</span>
+  </div>
+  <div class="hero-contacts" id="contact">
+    <a class="contact-btn primary" href="tel:0977530943">📞 0977 530 943</a>
+    <a class="contact-btn" href="mailto:trungtin8881@gmail.com">✉️ Email</a>
+    <a class="contact-btn" href="https://zalo.me/0977530943" target="_blank">💬 Zalo</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BACKGROUND -->
+<section class="section">
+  <div class="section-label">Nền tảng</div>
+  <div class="bg-grid">
+    <div class="bg-card">
+      <div class="bg-card-label">Ngân hàng</div>
+      <div class="bg-card-value">7+ năm</div>
+      <div class="bg-card-sub">Citibank Vietnam — Universal Banker</div>
+    </div>
+    <div class="bg-card">
+      <div class="bg-card-label">Tư vấn đầu tư</div>
+      <div class="bg-card-value">US$500,000</div>
+      <div class="bg-card-sub">Hợp đồng EB5 đầu tiên — 3 tuần</div>
+    </div>
+    <div class="bg-card">
+      <div class="bg-card-label">Sales target</div>
+      <div class="bg-card-value">150%</div>
+      <div class="bg-card-sub">Vượt chỉ tiêu liên tục tại Citibank</div>
+    </div>
+    <div class="bg-card">
+      <div class="bg-card-label">Sản phẩm đã deploy</div>
+      <div class="bg-card-value">4 apps</div>
+      <div class="bg-card-sub">Tự build — không có nền tảng CS</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="section-label">Sản phẩm đã xây dựng</div>
+  <div class="product-list">
+
+    <a class="product-card" href="https://trungtin8881-hue.github.io/dinh-co/" target="_blank">
+      <div class="product-header">
+        <span class="product-icon">💰</span>
+        <span class="product-link-icon">Mở ứng dụng →</span>
+      </div>
+      <div class="product-name">ĐỊNH CƠ — AI Finance Coach</div>
+      <div class="product-desc">
+        Ứng dụng quản lý tài chính cá nhân. Theo dõi thu chi, đặt mục tiêu tiết kiệm, dashboard trực quan. Chạy hoàn toàn offline, không cần đăng nhập. V32 stable.
+      </div>
+      <div class="product-tags">
+        <span class="ptag">PWA</span>
+        <span class="ptag">Offline</span>
+        <span class="ptag g">Miễn phí</span>
+        <span class="ptag o">HTML · CSS · JS</span>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://trungtin8881-hue.github.io/muscle-meal/" target="_blank">
+      <div class="product-header">
+        <span class="product-icon">💪</span>
+        <span class="product-link-icon">Mở ứng dụng →</span>
+      </div>
+      <div class="product-name">ĐỊNH CƠ Muscle Meal Planner</div>
+      <div class="product-desc">
+        Tính Calories, Protein, Carb, Fat theo thực phẩm Việt Nam. Nhật ký ăn uống, progress bar, gợi ý thực đơn tự động. Dành cho người tập gym.
+      </div>
+      <div class="product-tags">
+        <span class="ptag">Fitness</span>
+        <span class="ptag g">Thực phẩm VN</span>
+        <span class="ptag">PWA</span>
+        <span class="ptag o">Offline</span>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://trungtin8881-hue.github.io/mong-lung/" target="_blank">
+      <div class="product-header">
+        <span class="product-icon">🐦</span>
+        <span class="product-link-icon">Chơi ngay →</span>
+      </div>
+      <div class="product-name">CON CHIM MÔNG LUNG</div>
+      <div class="product-desc">
+        Game mobile — chim công sở ngố vượt nấm rơm Việt Nam. Bay tìm hướng đi. Hệ thống 3 tim, tốc độ tăng dần. Chạy trên mọi thiết bị.
+      </div>
+      <div class="product-tags">
+        <span class="ptag o">Game</span>
+        <span class="ptag">Mobile</span>
+        <span class="ptag g">Miễn phí</span>
+        <span class="ptag">iOS · Android</span>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://trungtin8881-hue.github.io/alien/" target="_blank">
+      <div class="product-header">
+        <span class="product-icon">👽</span>
+        <span class="product-link-icon">Chơi ngay →</span>
+      </div>
+      <div class="product-name">NGƯỜI NGOÀI HÀNH TINH XÂM CHIẾM</div>
+      <div class="product-desc">
+        Game arcade — điều khiển đĩa bay tấn công Trái Đất. Bắn laser, dùng bom hạt nhân, tránh đạn phòng không. Vui vẻ, dễ chơi trong 10 giây đầu.
+      </div>
+      <div class="product-tags">
+        <span class="ptag o">Game</span>
+        <span class="ptag">Arcade</span>
+        <span class="ptag g">Miễn phí</span>
+        <span class="ptag">Canvas API</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-label">Kinh nghiệm</div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <div class="exp-role">EB5 Investment Projects Advisor</div>
+        <div class="exp-company">Harvey Law Group</div>
+        <div class="exp-period">2023 – Hiện tại</div>
+        <div class="exp-desc">Tư vấn đầu tư định cư Mỹ diện EB5. Chốt hợp đồng US$500,000 trong 3 tuần đầu. 100% khách hàng hài lòng. Làm việc trực tiếp với luật sư Mỹ.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <div class="exp-role">Universal Banker</div>
+        <div class="exp-company">Citibank Vietnam</div>
+        <div class="exp-period">2017–2019 · 2022–2023</div>
+        <div class="exp-desc">Phục vụ khách hàng ưu tiên Citigold và doanh nghiệp nước ngoài. Vượt 150% chỉ tiêu doanh số. Giải ngân 1.8 tỷ VND tín dụng không có tài sản đảm bảo.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot" style="background:#16a34a"></div>
+      <div class="exp-content">
+        <div class="exp-role">Founder & Builder</div>
+        <div class="exp-company" style="color:#16a34a">ĐỊNH CƠ — AI Finance App</div>
+        <div class="exp-period">2024 – Hiện tại</div>
+        <div class="exp-desc">Tự xây dựng ứng dụng tài chính cá nhân hoàn chỉnh từ đầu, không có nền tảng CS. Sử dụng AI (Claude, ChatGPT) để thiết kế, code, debug và deploy. V32 stable trên GitHub Pages.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PHILOSOPHY -->
+<section class="section">
+  <div class="section-label">Quan điểm làm việc</div>
+  <div class="phil-grid">
+    <div class="phil-item">
+      <div class="phil-quote">Giá trị thật hơn hình ảnh</div>
+      <div class="phil-sub">Kết quả tự lên tiếng, không cần phô trương</div>
+    </div>
+    <div class="phil-item">
+      <div class="phil-quote">AI là công cụ, không phải câu trả lời</div>
+      <div class="phil-sub">Nhiều người có cùng công cụ, kết quả khác do cách dùng</div>
+    </div>
+    <div class="phil-item">
+      <div class="phil-quote">Mọi việc đều là cơ hội học</div>
+      <div class="phil-sub">Đi làm và làm cho mình không đối lập nhau</div>
+    </div>
+    <div class="phil-item">
+      <div class="phil-quote">Ổn định trước, tăng trưởng sau</div>
+      <div class="phil-sub">Nền tảng vững thì mới xây được cao</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Nguyễn Trung Tín</strong> · Banking & Finance · AI Product Builder<br>
+  <a href="mailto:trungtin8881@gmail.com">trungtin8881@gmail.com</a> · <a href="tel:0977530943">0977 530 943</a><br><br>
+  <span style="opacity:.4">Sản phẩm thật. Giá trị thật.</span>
+</footer>
+
+</body>
+</html>
